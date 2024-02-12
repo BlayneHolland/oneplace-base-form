@@ -1,0 +1,121 @@
+/*  Suggested Styles for the Form Component:
+    -------------------------
+*/
+
+
+/** 
+* ====================================================================== 
+* Modal Styles
+* ====================================================================== 
+**/
+
+.form-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-modal-container h1 {
+    margin: 0px;
+}
+
+.form-modal-container button {
+    font-size: 1rem;
+    background-color: #0079c2;
+    padding: 10px 20px;
+    color: white;
+    border: 0px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.form-modal-container button:hover {
+    transition: background 0.2s ease;
+    background-color: #038bca;
+}
+
+
+/** 
+* ====================================================================== 
+* Form Input Styles
+* ====================================================================== 
+**/
+
+
+/* Input */
+.base-form__component_container .form__input-group label {
+    position: relative;
+    display: block;
+    margin: 0px 0px 6px 0px;
+    font-size: 16px;
+}
+
+.base-form__component_container .form__input-group input,
+.base-form__component_container .form__input-group textarea {
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #D1D1D1;
+    padding: 6px 10px;
+    font-size: 1.1rem;
+    font-weight: 200;
+    box-sizing: border-box;
+}
+
+
+/* submit button */
+
+.form__submit-section {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form__submit-section .form-submit-button {
+    font-size: 1rem;
+    background-color: #0079c2;
+    padding: 10px 20px;
+    color: white;
+    border: 0px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.form__submit-section .form-submit-button:hover {
+    transition: background 0.2s ease;
+    background-color: #038bca;
+}
+
+.form-submit-button path {
+    fill: white;
+}
+
+.form__submit-section .icon-component-container {
+    width: 1rem;
+}
+
+
+/** 
+* ====================================================================== 
+* Animations
+* ====================================================================== 
+**/
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from {transform: rotateZ(0deg)}
+    to {transform: rotateZ(360deg)}
+}

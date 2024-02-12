@@ -1,0 +1,9 @@
+[09-Feb-2024 21:41:00 UTC] PHP Warning:  require_once(class.db.php): failed to open stream: No such file or directory in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 4
+[09-Feb-2024 21:41:00 UTC] PHP Fatal error:  require_once(): Failed opening required 'class.db.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 4
+[09-Feb-2024 21:42:27 UTC] PHP Warning:  require_once(class.db.php): failed to open stream: No such file or directory in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 7
+[09-Feb-2024 21:42:27 UTC] PHP Fatal error:  require_once(): Failed opening required 'class.db.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 7
+[09-Feb-2024 21:45:56 UTC] PHP Warning:  require_once(class.db.php): failed to open stream: No such file or directory in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 16
+[09-Feb-2024 21:45:56 UTC] PHP Fatal error:  require_once(): Failed opening required 'class.db.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 16
+[09-Feb-2024 21:46:24 UTC] PHP Warning:  require_once(class.db.php): failed to open stream: No such file or directory in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 16
+[09-Feb-2024 21:46:24 UTC] PHP Fatal error:  require_once(): Failed opening required 'class.db.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 16
+[09-Feb-2024 21:47:42 UTC] PHP Notice:  Undefined index: userId in /home/udxvmfmy/public_html/oneplace/forms/base_form/app/api/saveToDb.php on line 21
