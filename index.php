@@ -17,5 +17,5 @@
     
 </body>
 </html>
-<script src="https://ouroneplace.com/forms/base_form/app/vendor/vue.prod.js" type="text/javascript"> </script>
-<script src="https://ouroneplace.com/forms/base_form/app/app.js" type="module"> </script>
+<script src="./app/vendor/vue.prod.js" type="text/javascript"> </script>
+<script src="./app/app.js" type="module"> </script>

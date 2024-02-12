@@ -1,10 +1,4 @@
 <?php
-
-
-die();
-die();
-die();
-die();
 /* --------------------- How to use -------------------- */
 
 /*
@@ -28,19 +22,20 @@ $reomapimail->send();
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
+// Absolutely Required
+require('const.php');
+
 class MapiMail {
 
 
     /* API Token informarino */
-
+    
     /* ------------------------------- maybe levae theses empty on full release ----------------------- */
-    public $objectID = "54535681-429b-4f1c-be95-2989af32bc2c"; // The object ID of who YOU ARE SENDING AS (this one is info@realestateone.com)
-
-    protected $tenantID = "a936bbe5-a3cf-4fd1-988f-34341d730f12"; // Our Azure Active Directory Tenant ID
-    protected $clientID = "bc5c1189-2a63-4dbf-b389-d0ecc3168eb6"; // Send Mail app Client ID
-    // protected $clientSecret = "bviSWIxIZEIKKj0UCaDe8ffajCqmdGSQMvIrEm/j94c="; // Send Mail app Client Key
-    protected $clientSecret = "r0~YSb~-SzrR9It~-o1~D5PlZXx1.MAG87"; // Send Mail App new Client Secret
-    protected $scope = "https://graph.microsoft.com/.default"; // Url of API you are accessing
+    public $objectID = MAILAPI_OBJECT_ID; // The object ID of who YOU ARE SENDING AS (this one is
+    protected $tenantID = MAILAPI_TENANT_ID; // Our Azure Active Directory Tenant ID
+    protected $clientID = MAILAPI_CLIENT_ID; // Send Mail app Client ID
+    protected $clientSecret = MAILAPI_CLIENT_SECRET; // Send Mail app Client Key
+    protected $scope = MAILAPI_SCOPE; // Url of API you are accessing
     /* ---------------------------------- */
 
 
@@ -515,7 +510,7 @@ class MapiMail {
 
 class ReoMapiMail Extends MapiMail {
     /* ------------------------------- Required API Values! ----------------------- */
-    public $objectID = "54535681-429b-4f1c-be95-2989af32bc2c"; // The object ID of who YOU ARE SENDING AS
+    public $objectID = MAILAPI_OBJECT_ID;
     /* ------------------------------------------------------------------------------- */
 }
 

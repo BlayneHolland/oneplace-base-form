@@ -13,7 +13,7 @@ export const BaseForm = {
     <div class="sk-container base-form__component_container">
 
         <!-- Modal -->
-        <modal ref="modal" :modalIsLocked="isSending" :disableScroll="true">
+        <modal ref="modal" :modalIsLocked="isSending" :disableScroll="true" :disableTopBar="true">
             <div class="form-modal-container">
                 <h1 v-show="!isSending"> {{ statusMessage }} </h1>
                 <h1 v-show="isSending"> Sending Message </h1>
@@ -36,7 +36,7 @@ export const BaseForm = {
 
         <div class="row">
             <div class="form__submit-section twelve-columns">
-                <button type="button" class="form-submit-button" :disabled="isLoading" @click="submitForm(writeToDb)"> 
+                <button type="button" class="form-submit-button" :disabled="isLoading" @click="submitForm(sendEmail)"> 
                     <span> Send </span> 
                 </button>
                 <icon iconName="spinner" :spin="true" v-show="isLoading" color="#0079c2"></icon> 
@@ -111,7 +111,7 @@ export const BaseForm = {
 
             
             // Make fetch request
-            fetch('https://ouroneplace.com/forms/base_form/app/mail/sendemail.php', requestOptions)
+            fetch('./app/mail/sendemail.php', requestOptions)
             .then(response => response.json())
             .then((result) => {
 
@@ -156,7 +156,7 @@ export const BaseForm = {
 
             this.isLoading = true;
 
-            fetch('https://ouroneplace.com/forms/base_form/app/api/saveToDb.php', requestOptions)
+            fetch('./app/api/saveToDb.php', requestOptions)
             .then(res => res.json())
             .then(json => {
 
@@ -220,7 +220,6 @@ export const BaseForm = {
          * The child component must have the ref="" attribute that matches the v-model="" name used.
          */
         clearForm() {
-            console.log("clearing form");
             this.formData = {};
             for(let i in this.$refs) {
 

@@ -1,6 +1,6 @@
 /**
  * Modal Component
- * Version 0.04 - Last updated: 2/9/2024
+ * Version 0.07 - Last updated: 2/11/2024
  * 
  * Description: Modal Component. Those popups that overalys over the entire page.
  *
@@ -12,10 +12,10 @@ const Modal = {
 	template: `
   <div class="modal-component-container" v-show="modalIsShown" ref="modalComponentContainer" style="position: fixed; display: flex; align-items: center; justify-content: center; top: 10px; left: 0px; width: 100%; height: 100%; box-sizing: border-box; padding: 50px 0px; opacity: 0; transform: translateY(-10px); z-index: 1">
 
-      <div @click="close()" ref="modalBackground" class="modal-component__background"  style="position: absolute; transition: 0.2s ease; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #0000008a; z-index: 10; opacity: 0"> </div>
+      <div @click="close()" ref="modalBackground" class="modal-component__background"  style="position: absolute; transition: 0.2s ease; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(177 177 177 / 73%); z-index: 10; opacity: 0"> </div>
 
-      <div ref="mainContent" class="modal-component__content-container" style="background-color: white;padding: 20px 0px;border-radius: 10px;max-width: 650px; max-height: 100%;box-sizing: border-box;width: 100%;display: grid;grid-template-rows: 1fr minmax(auto, 100%); z-index: 20;transition: all 0.2s ease 0s;position: relative;box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;transform: translateY(-10px)">
-          <div class="modal-component__header" style="display: flex;flex-end: space-between;align-items: center;padding: 0px 20px 20px;">
+      <div ref="mainContent" class="modal-component__content-container" style="background-color: white;padding: 20px 0px;border-radius: 10px;max-width: 650px; max-height: 100%;box-sizing: border-box;width: 100%;display: grid; z-index: 20;transition: all 0.2s ease 0s;position: relative;box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);transform: translateY(-10px)">
+          <div class="modal-component__header" v-show="disableTopBar !== true" style="display: flex;flex-end: space-between;align-items: center;padding: 0px 20px 20px;">
             <span @click="close()" class="modal-component-x-button" style="background: #e8e8ed; border-radius: 50%; color: #6e6e73; display: flex; align-items: center; justify-content: center; height: 26px; width: 26px; outline: none; position: relative;">
               <svg width="21" height="21" aria-hidden="true">
                   <path fill="none" d="M0 0h21v21H0z"></path>
@@ -29,11 +29,11 @@ const Modal = {
       </div>
   </div>
   `,
-  props: ["timeout", "title", "modalIsOpen", "modalIsLocked", "disableScroll"],
+  props: ["timeout", "modalIsOpen", "modalIsLocked", "disableTopBar", "disableScroll"],
   emits: ["on-modal-close", "on-modal-open"],
   watch: {
     modalIsOpen(newValue, oldValue) {
-      if(newValue == true) {
+      if(newValue) {
         this.open();
       }
       else {
@@ -51,7 +51,16 @@ const Modal = {
     }
   },
   methods: {
-  
+    /**
+     * 
+     * open
+     * 
+     * Description: Opens the modal.
+     * 
+     * @param {none}
+     * @return {none}
+     * 
+     */
     open() {
     
       let self = this; // Reach the the inside of functions.
@@ -99,78 +108,15 @@ const Modal = {
 
 
 
-    handleScroll(event) {
 
-        // This function no longer used
-        // Possably Erase this entire function
-        // It was a means to make the entire modal scroll but I decided to make the modal have an inner scroll
-        
-        let mainContentElement = this.$refs.mainContent;
-        let browserWindowHeight = window.innerHeight;
-        let modalHeight = mainContentElement.offsetHeight;
-        let modalMinPosition = 0;
-        let modalMaxPosition = 0;
-        
-        console.log(event);
-        console.log(mainContentElement.offsetHeight);
-        console.log(window.innerHeight);
-
-        
-        /* When scrolling down*/
-        if (event.deltaY > 0) {
-
-            // Set the modal max and min scroll position
-            if(modalHeight > browserWindowHeight) {
-                modalMaxPosition = modalHeight + (modalHeight - browserWindowHeight);
-                modalMaxPosition = 150;
-            }
-
-            if(this.currentContentScrollPosition > modalMaxPosition) {
-                this.currentContentScrollPosition = modalMaxPosition;
-            }
-
-            // Scrolling down
-            this.currentContentScrollPosition = this.currentContentScrollPosition + 100;
-            mainContentElement.style.transform = "translateY("+this.currentContentScrollPosition+"px)";
-
-            console.log('Scroll Position: ' + this.currentContentScrollPosition );
-            console.log('Scroll Position: ' + this.currentContentScrollPosition );
-            
-        }
-
-        
-        /* When scrolling up [ x ] */
-        else if (event.deltaY < 0) {
-
-            if(modalHeight > browserWindowHeight) {
-                modalMinPosition = 0 - (modalHeight - browserWindowHeight);
-            }
-
-            console.log("modal Min position");
-            console.log(modalMinPosition);
-
-
-            this.currentContentScrollPosition = this.currentContentScrollPosition - 100;
-
-            if(this.currentContentScrollPosition < modalMinPosition) {
-                this.currentContentScrollPosition = modalMinPosition;
-            }
-
-            mainContentElement.style.transform = "translateY("+this.currentContentScrollPosition+"px)";
-
-            // Scrolling up
-            console.log('Scrolling up');
-            console.log('Scroll Position: ' + this.currentContentScrollPosition );
-
-
-        }
-    },
-
-
-
-
-
-    // Close and clear the message popup.
+    /**
+     * close
+     * 
+     * Description: Closes the modal.
+     * 
+     * @param {none}
+     * @return {none}
+    **/
     close() {
 
       let self = this; // Reach the inside of functions...
@@ -211,7 +157,7 @@ const Modal = {
   },
   created() {},
   mounted() {
-
+    
     // Open modal by default
     if(this.modalIsOpen) {
       this.open();
@@ -220,6 +166,10 @@ const Modal = {
     // disable scrolling on the body
     if(this.disableScroll == true) {
       document.querySelector(".modal-component__main-content").style.overflow = "hidden";
+    }
+
+    if(this.disableTopBar == true) {
+      this.$refs.mainContent.style.padding = "40px";
     }
 
   }

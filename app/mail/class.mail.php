@@ -2,7 +2,7 @@
 
 	/**
 	 * Class.mail.php
-	 * Version 0.01 - Last updated: 02/07/2024
+	 * Version 0.02 - Last updated: 02/11/2024
 	 * 
 	 * Description: Ouroneplace php mailer parameters
 	 *
@@ -13,6 +13,8 @@
 	// For bluehost you must use $_SERVER['DOCUMENT_ROOT'] + path to file. ANY time you're using include
 	// How to use PHP Mailer https://github.com/PHPMailer/PHPMailer. Example near bottom of file
 
+
+	require ('const.php');
     require('phpmailer/PHPMailer.php');
     require('phpmailer/SMTP.php');
     require('phpmailer/Exception.php');
@@ -35,7 +37,7 @@
 			        $this->SMTPAuth      = true;
 			        $this->Host          = "outlook.office365.com";
 			        $this->Username      = 'info@realestateone.com';
-			        $this->Password      = '0yi3168I';
+			        $this->Password      = ONEPLACE_EMAIL_PASS;
 			        $this->SMTPSecure    = PHPMailer::ENCRYPTION_STARTTLS;
 			        $this->Port          = 587;
 			        $this->isHTML(true);
@@ -52,25 +54,6 @@
 
 
 
-	    		// [ reocharitablefoundation.net email settings  ]
-	    		case 'reocharitablefoundation':
-				    	
-			    	$this->isSMTP();
-				    $this->SMTPAuth      = true;
-				    $this->Host          = "box918.bluehost.com";
-				    $this->Username      = 'info@reocharitablefoundation.org';
-				    $this->SMTPSecure    = 'tls';
-				    $this->port          = '465';
-				    $this->Password      = '.RQ,IQnNj*2y^)';
-				    $this->From          = 'info@reocharitablefoundation.org';
-				    $this->FromName      = "REO Charitable Foundation";
-				    $this->isHTML(true);
-					$this->CharSet = "UTF-8";
-				    
-	    		break;
-	    		
-
-
 
 	    		default:
 	    			// [ cPanel Mail Settings ]
@@ -78,7 +61,7 @@
 			        $this->SMTPAuth      = true;
 			        $this->Host          = "outlook.office365.com";
 			        $this->Username      = 'info@realestateone.com';
-			        $this->Password      = '0yi3168I';
+			        $this->Password      = ONEPLACE_EMAIL_PASS;
 			        $this->SMTPSecure    = PHPMailer::ENCRYPTION_STARTTLS;
 			        $this->Port          = 587;
 			        $this->isHTML(true);

@@ -13,11 +13,16 @@ if(!isset($_POST)) {
 
 
 
+
+
 /* ================= Testing area end ================== */
 // $resultArr = Array("status" => "ok", "message" => "Email Successfully Sent");
 // echo json_encode($resultArr);
 // die();
 /* ================================================== */
+
+
+
 
 
 /** 
@@ -80,6 +85,10 @@ function createBasicMessageBody($postvars, $msgSubject = "") {
 	return $msg;
 }
 
+
+
+
+
 //Require mapimail
 // require_once('class.mapimail.php');
 // $mail =  New MapiMail();
@@ -123,15 +132,14 @@ try {
     * ======================================================================= 
     **/
 
-	$subject = "Base Form Email";
-	$mail->Subject = $subject;
+	$mail->Subject = "Base Form Email";
 
 	// Message body
 	//$mail->Body = createBasicMessageBody($_POST, $subject);
 	// or
 	$mail->Body = requireToVar('./templates/base_template.php');
 
-	//$mail->send();
+	$mail->send();
 
     $resultArr = Array("status" => "ok", "message" => "Email Successfully Sent");
 	die(json_encode($resultArr));
