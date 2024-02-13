@@ -1,8 +1,8 @@
 /** 
 * ====================================================================== 
-* Form fields - v0.17
+* Form fields - v0.18
 * 
-* Updated on 02/07/2024
+* Updated on 02/11/2024
 * Use with Form component
 * ======================================================================= 
 **/
@@ -181,7 +181,8 @@ export const TextInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -350,7 +351,8 @@ export const PasswordInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -592,7 +594,8 @@ export const TextDropdownInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -819,7 +822,8 @@ export const FileInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         },
         maxFileSizeToBytes() {
             return (this.p_maxFileSize * 1000000);
@@ -1119,7 +1123,8 @@ export const FileImageInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         },
         maxFileSizeToBytes() {
             return (this.p_maxFileSize * 1000000);
@@ -1387,7 +1392,8 @@ export const FileInputv2 = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_");
         },
         maxFileSizeToBytes() {
             return (this.p_maxFileSize * 1000000);
@@ -1654,7 +1660,8 @@ export const FileInputTwoBeta = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_");  
         },
         maxFileSizeToBytes() {
             return (this.p_maxFileSize * 1000000);
@@ -1950,7 +1957,8 @@ export const MultiTextInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -2323,7 +2331,8 @@ export const TextareaInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -2777,7 +2786,8 @@ export const CheckboxInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
@@ -2992,7 +3002,8 @@ export const CheckboxGroup = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_");
         },
         formatName() {
             // Converts input string into kebab-case is it has spaces.
@@ -3201,7 +3212,8 @@ export const DateInput = {
     computed: {
         formatLabel() {
             // Converts input string into kebab-case is it has spaces.
-            return this.label.toLowerCase().split(" ").join("_"); 
+            let str = this.label ?? "";
+            return str.toLowerCase().split(" ").join("_"); 
         }
     },
     created() {
